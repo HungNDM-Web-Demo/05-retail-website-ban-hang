@@ -14,7 +14,7 @@
 | Loại sản phẩm | Website cho khách + web quản trị |
 | Ý tưởng gốc | 2.1 · Website bán hàng (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
 | Người phụ trách | |
-| Trạng thái | Mới tạo từ khuôn mẫu |
+| Trạng thái | Có tài liệu nghiệp vụ (SRS, use case, kịch bản demo, kịch bản kiểm thử), chưa code |
 
 ## 2. Vấn đề của khách hàng
 
@@ -47,8 +47,12 @@
 | `Sales` | Trang chủ, danh mục, tìm kiếm | `/`, `/products` | P1 |
 | `Sales` | Chi tiết sản phẩm, biến thể | `/products/[slug]` | P1 |
 | `Sales` | Giỏ hàng, đặt hàng | `/cart`, `/checkout` | P1 |
+| `Sales` | Đặt hàng thành công, QR chuyển khoản | `/checkout/success` | P1 |
+| `Sales` | Tổng quan quản trị | `/dashboard` | P1 |
 | `Sales` | Quản lý sản phẩm | `/admin/products` | P1 |
+| `Sales` | Thêm, sửa sản phẩm và biến thể | `/admin/products/[id]` | P1 |
 | `Sales` | Quản lý đơn hàng | `/admin/orders` | P1 |
+| `Sales` | Chi tiết đơn, in phiếu giao hàng | `/admin/orders/[id]`, `/admin/orders/[id]/print` | P1 |
 | `Sales` | Mã giảm giá | `/admin/coupons` | P2 |
 | `Sales` | Tra cứu đơn | `/tra-cuu-don` | P2 |
 | `Crm` | Khách hàng | `/admin/customers` | P2 |
