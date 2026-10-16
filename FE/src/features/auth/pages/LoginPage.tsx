@@ -9,6 +9,7 @@ import { ThemeToggle } from '@/components/shared/ThemeToggle'
 import { appConfig } from '@/config/app.config'
 import { homePathForUser } from '@/config/routes'
 import { useBrand } from '@/features/settings/hooks/use-settings'
+import { StoreEntryCard } from '@/features/shop/components/StoreEntry'
 import { formatPhone } from '@/lib/format'
 import { LoginForm } from '../components/LoginForm'
 import { QuickLogin } from '../components/QuickLogin'
@@ -92,6 +93,8 @@ export function LoginPage() {
 
             <LoginForm onSuccess={handleSuccess} />
             <QuickLogin onSuccess={handleSuccess} />
+            {/* Lối vào cửa hàng cho người xem demo (07 §4.2 bước 1) */}
+            <StoreEntryCard />
           </div>
         </main>
 

@@ -15,7 +15,7 @@
 
 | Link | Ghi chú |
 | :--- | :--- |
-| FE | `http://localhost:3105` hoặc link online |
+| FE | `http://localhost:3105` hoặc `https://pum-ban-hang.vercel.app` (chế độ dữ liệu mẫu) |
 | Swagger | `https://localhost:7105/swagger` (khi khách hỏi về tích hợp) |
 
 | Tài khoản | Vai trò | Dùng để cho xem |

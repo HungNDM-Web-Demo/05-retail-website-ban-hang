@@ -105,4 +105,5 @@ Dữ liệu mẫu dùng trong test:
 
 | Ngày | Người test | Chế độ | Số TC đạt / tổng | Lỗi ghi nhận |
 | :--- | :--- | :--- | :---: | :--- |
-| | | | | |
+| 16/10/2026 | Claude (kiểm thử tự động trên trình duyệt) | `mock` | 6 / 6 điểm kiểm lại (phần đã sửa) | Kiểm lại sau sửa, đều đạt: mã danh mục 2 chữ in hoa, gộp dòng trùng biến thể khi đặt và sửa đơn, sửa đơn đổi số điện thoại chuyển đơn sang hồ sơ khách số mới, giả lập đơn bỏ AT001/QJ003/TX001/VD002, bấm Đặt hàng liên tiếp chỉ tạo một đơn |
+| 16/10/2026 | Claude (kiểm thử tự động trên trình duyệt) | `api` (BE .NET + Postgres) | 43 / 43 | Đã sửa: (1) TC-18 bấm Đặt hàng nhiều lần liền nhau tạo nhiều đơn (mỗi lần một `clientRequestId` mới) → giữ mã yêu cầu và cờ đang gửi trong ref; (2) form sửa sản phẩm, sửa mã giảm giá không lưu được khi BE trả `null` (`listPrice`, `size`, `colorId` ảnh, `sizeChart`, `maxDiscount`, `categoryId`, `totalLimit`) → đổi `null` thành `undefined` khi nạp form; (3) BE bỏ qua khóa sắp xếp `totalStock` (sản phẩm), `deliveredCount`, `returnCount` (khách) → thêm, kèm test; (4) lỗi trường không thuộc form thanh toán bị nuốt, không hiện thông báo → hiện toast; (5) dòng giỏ hết hàng hiện số lượng 1 trong khi thành tiền tính theo số đã chọn → hiện đúng số đã chọn; (6) mã danh mục FE/mock cho 2–10 ký tự → theo BE 2 chữ in hoa |

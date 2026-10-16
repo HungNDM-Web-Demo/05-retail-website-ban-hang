@@ -12,6 +12,7 @@ EnvLoader.Load(builder);
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApiPresentation(builder.Configuration);
+builder.Services.AddSalesApi();
 
 var app = builder.Build();
 

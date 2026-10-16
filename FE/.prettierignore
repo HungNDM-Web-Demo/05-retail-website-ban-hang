@@ -35,3 +35,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Dữ liệu mẫu sinh bằng script, mỗi đơn hàng một dòng
+src/mock/seed/demo-data.json

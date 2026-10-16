@@ -1,9 +1,204 @@
 {
-  "$comment": "Phần riêng của dự án, ghép thêm vào system.json khi seed (FE mock và BE SystemSeeder). permissions: quyền nghiệp vụ; roles: vai trò riêng (vd CASHIER); roleGrants: quyền cấp thêm cho vai trò có sẵn; users: tài khoản demo thêm, trùng username thì ghi đè các trường khai báo; roles trùng code thì ghi đè tên, mô tả; settings: ghi đè giá trị cài đặt nền theo khóa; homeAfterLogin: trang mở sau khi đăng nhập (chỉ FE).",
-  "permissions": [],
-  "roles": [],
-  "roleGrants": {},
-  "users": [],
-  "settings": [],
+  "$comment": "Phần riêng của dự án, ghép thêm vào system.json khi seed (FE mock và BE SystemSeeder). permissions: quyền nghiệp vụ (docs/07-DANH-SACH-API.md §1, khớp 02-SRS §7); roles: đổi mô tả MANAGER, STAFF; roleGrants: quyền cấp thêm cho vai trò có sẵn; users: admin, quanly, nhanvien ghi đè mô tả thẻ Đăng nhập nhanh, thêm nhanvien2 (nhân viên ca tối trong dữ liệu mẫu, không có thẻ Đăng nhập nhanh); settings: Brand.*, Store.* (thông tin shop trên website, phiếu giao, QR chuyển khoản; docs/06 §3); homeAfterLogin: trang mặc định sau đăng nhập (docs/07 §4.1).",
+  "permissions": [
+    {
+      "code": "products.view",
+      "groupName": "Sản phẩm",
+      "name": "Xem sản phẩm, biến thể, tồn kho",
+      "sortOrder": 200
+    },
+    {
+      "code": "products.create",
+      "groupName": "Sản phẩm",
+      "name": "Thêm danh mục, màu, sản phẩm, biến thể",
+      "sortOrder": 201
+    },
+    {
+      "code": "products.update",
+      "groupName": "Sản phẩm",
+      "name": "Sửa, ẩn, sắp xếp danh mục và sản phẩm, bật tắt biến thể",
+      "sortOrder": 202
+    },
+    {
+      "code": "products.delete",
+      "groupName": "Sản phẩm",
+      "name": "Xóa danh mục trống, sản phẩm và biến thể chưa có trong đơn",
+      "sortOrder": 203
+    },
+    {
+      "code": "products.adjust-stock",
+      "groupName": "Sản phẩm",
+      "name": "Điều chỉnh tồn kho",
+      "sortOrder": 204
+    },
+    {
+      "code": "orders.view",
+      "groupName": "Đơn hàng",
+      "name": "Xem danh sách, chi tiết đơn",
+      "sortOrder": 210
+    },
+    { "code": "orders.confirm", "groupName": "Đơn hàng", "name": "Xác nhận đơn", "sortOrder": 211 },
+    {
+      "code": "orders.confirm-payment",
+      "groupName": "Đơn hàng",
+      "name": "Xác nhận đã nhận tiền chuyển khoản",
+      "sortOrder": 212
+    },
+    {
+      "code": "orders.update",
+      "groupName": "Đơn hàng",
+      "name": "Sửa đơn Chờ xác nhận, ghi chú nội bộ",
+      "sortOrder": 213
+    },
+    {
+      "code": "orders.cancel",
+      "groupName": "Đơn hàng",
+      "name": "Hủy đơn chưa bàn giao",
+      "sortOrder": 214
+    },
+    {
+      "code": "orders.ship",
+      "groupName": "Đơn hàng",
+      "name": "Bàn giao vận chuyển, in phiếu giao, cập nhật kết quả giao",
+      "sortOrder": 215
+    },
+    {
+      "code": "orders.refund",
+      "groupName": "Đơn hàng",
+      "name": "Đánh dấu đã hoàn tiền cho đơn chuyển khoản bị hủy",
+      "sortOrder": 216
+    },
+    {
+      "code": "coupons.view",
+      "groupName": "Mã giảm giá",
+      "name": "Xem mã giảm giá",
+      "sortOrder": 220
+    },
+    {
+      "code": "coupons.create",
+      "groupName": "Mã giảm giá",
+      "name": "Thêm mã giảm giá",
+      "sortOrder": 221
+    },
+    {
+      "code": "coupons.update",
+      "groupName": "Mã giảm giá",
+      "name": "Sửa, tạm dừng, chạy lại mã giảm giá",
+      "sortOrder": 222
+    },
+    {
+      "code": "coupons.delete",
+      "groupName": "Mã giảm giá",
+      "name": "Xóa mã chưa có lượt dùng",
+      "sortOrder": 223
+    },
+    {
+      "code": "customers.view",
+      "groupName": "Khách hàng",
+      "name": "Xem khách hàng, lịch sử đơn",
+      "sortOrder": 230
+    },
+    {
+      "code": "customers.update",
+      "groupName": "Khách hàng",
+      "name": "Sửa ghi chú khách",
+      "sortOrder": 231
+    },
+    {
+      "code": "reports.view",
+      "groupName": "Báo cáo",
+      "name": "Xem báo cáo và các thẻ doanh thu ở Tổng quan",
+      "sortOrder": 260
+    }
+  ],
+  "roles": [
+    {
+      "code": "MANAGER",
+      "name": "Quản lý",
+      "description": "Sản phẩm và tồn kho, mã giảm giá, khách hàng, báo cáo doanh thu; làm được mọi việc xử lý đơn và đánh dấu hoàn tiền"
+    },
+    {
+      "code": "STAFF",
+      "name": "Nhân viên",
+      "description": "Xử lý đơn: xác nhận, xác nhận tiền về, sửa đơn chờ xác nhận, hủy, bàn giao vận chuyển, in phiếu giao, cập nhật kết quả giao"
+    }
+  ],
+  "roleGrants": {
+    "MANAGER": [
+      "products.view",
+      "products.create",
+      "products.update",
+      "products.delete",
+      "products.adjust-stock",
+      "orders.view",
+      "orders.confirm",
+      "orders.confirm-payment",
+      "orders.update",
+      "orders.cancel",
+      "orders.ship",
+      "orders.refund",
+      "coupons.view",
+      "coupons.create",
+      "coupons.update",
+      "coupons.delete",
+      "customers.view",
+      "customers.update",
+      "reports.view"
+    ],
+    "STAFF": [
+      "products.view",
+      "orders.view",
+      "orders.confirm",
+      "orders.confirm-payment",
+      "orders.update",
+      "orders.cancel",
+      "orders.ship",
+      "coupons.view",
+      "customers.view"
+    ]
+  },
+  "users": [
+    {
+      "username": "admin",
+      "description": "Phân quyền, tài khoản, thông tin shop, logo và màu của website"
+    },
+    {
+      "username": "quanly",
+      "description": "Tổng quan doanh thu, sản phẩm và tồn kho, mã giảm giá, khách hàng, báo cáo"
+    },
+    {
+      "username": "nhanvien",
+      "description": "Xác nhận đơn, xác nhận tiền chuyển khoản, bàn giao vận chuyển, in phiếu giao, xử lý hủy và hoàn hàng"
+    },
+    {
+      "username": "nhanvien2",
+      "fullName": "Phạm Thu Trang",
+      "email": "nhanvien2@example.com",
+      "phone": "0123456784",
+      "roles": ["STAFF"],
+      "isDemoAccount": true,
+      "quickLogin": false,
+      "sortOrder": 4,
+      "description": "Nhân viên xử lý đơn ca tối trong dữ liệu mẫu"
+    }
+  ],
+  "settings": [
+    { "key": "Brand.AppName", "value": "Website Bán hàng", "groupName": "Thương hiệu" },
+    { "key": "Brand.LogoUrl", "value": "/logo/logo-mark.svg", "groupName": "Thương hiệu" },
+    { "key": "Brand.PrimaryColor", "value": "#1E40AF", "groupName": "Thương hiệu" },
+    { "key": "Store.Name", "value": "Nhà Sợi", "groupName": "Cửa hàng" },
+    { "key": "Store.Tagline", "value": "Cotton, linen mặc mỗi ngày", "groupName": "Cửa hàng" },
+    { "key": "Store.Hotline", "value": "028 3000 1234", "groupName": "Cửa hàng" },
+    { "key": "Store.Email", "value": "cskh@example.com", "groupName": "Cửa hàng" },
+    {
+      "key": "Store.Address",
+      "value": "48 Trần Quang Khải, Phường Tân Định, TP. Hồ Chí Minh",
+      "groupName": "Cửa hàng"
+    },
+    { "key": "Store.WorkingHours", "value": "8h–21h hằng ngày", "groupName": "Cửa hàng" },
+    { "key": "Store.BankBin", "value": "970422", "groupName": "Cửa hàng" },
+    { "key": "Store.BankAccount", "value": "0000000000", "groupName": "Cửa hàng" },
+    { "key": "Store.BankAccountName", "value": "NHA SOI", "groupName": "Cửa hàng" }
+  ],
   "homeAfterLogin": "/dashboard"
 }

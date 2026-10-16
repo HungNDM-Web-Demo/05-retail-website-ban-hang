@@ -15,6 +15,11 @@ export const auditEntityLabels: Record<string, string> = {
   User: 'Tài khoản',
   Role: 'Vai trò',
   Setting: 'Cài đặt',
+  // Website Bán hàng (07 §4.9)
+  Product: 'Sản phẩm',
+  Category: 'Danh mục',
+  Color: 'Màu',
+  Coupon: 'Mã giảm giá',
 }
 
 /** Tên cột (camelCase) → nhãn tiếng Việt trong bảng "trước / sau". */
@@ -41,6 +46,29 @@ export const auditFieldLabels: Record<string, string> = {
   status: 'Trạng thái',
   createdAt: 'Ngày tạo',
   updatedAt: 'Ngày sửa',
+  // Website Bán hàng
+  slug: 'Đường dẫn',
+  categoryId: 'Danh mục',
+  price: 'Giá bán',
+  listPrice: 'Giá gốc',
+  isFeatured: 'Nổi bật',
+  isHidden: 'Ẩn',
+  isVisible: 'Hiển thị',
+  images: 'Ảnh',
+  colorIds: 'Màu',
+  sizes: 'Size',
+  variants: 'Biến thể',
+  sizeChart: 'Bảng size',
+  hex: 'Mã màu',
+  color: 'Màu nền',
+  type: 'Kiểu mã',
+  maxDiscount: 'Giảm tối đa',
+  minOrder: 'Đơn tối thiểu',
+  totalLimit: 'Tổng lượt',
+  perCustomerLimit: 'Lượt mỗi khách',
+  startAt: 'Bắt đầu',
+  endAt: 'Kết thúc',
+  isPaused: 'Tạm dừng',
 }
 
 export const entityLabel = (name: string) => auditEntityLabels[name] ?? name

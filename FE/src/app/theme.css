@@ -4,7 +4,8 @@
  *
  * Màu chính lấy từ biến --brand* do BrandThemeSync gán lúc chạy theo cài đặt
  * Brand.PrimaryColor (xem src/lib/brand-color.ts). Giá trị dự phòng bên dưới là
- * bộ màu tính sẵn cho #2563EB, để trang không bị chớp màu trước khi JS chạy.
+ * bộ màu tính sẵn cho #1E40AF (Brand.PrimaryColor của Nhà Sợi: chữ trắng 8,7:1; chế độ tối
+ * #6D83CB chữ tối, 5,1:1 trên nền tối), để trang không bị chớp màu trước khi JS chạy.
  *
  * Màu nút hành động (--cta) là cam đậm #C2410C để chữ trắng đạt 5,2:1 (cam #EA580C chỉ đạt 3,6:1).
  * Chế độ tối dùng cam sáng #F97316 với chữ tối.
@@ -20,7 +21,7 @@
   --popover: #ffffff;
   --popover-foreground: #1e293b;
 
-  --primary: var(--brand, #2563eb);
+  --primary: var(--brand, #1e40af);
   --primary-foreground: var(--brand-foreground, #ffffff);
   --secondary: #f1f5f9;
   --secondary-foreground: #1e293b;
@@ -44,9 +45,9 @@
 
   --border: #e2e8f0;
   --input: #cbd5e1;
-  --ring: var(--brand, #2563eb);
+  --ring: var(--brand, #1e40af);
 
-  --chart-1: var(--brand, #2563eb);
+  --chart-1: var(--brand, #1e40af);
   --chart-2: #ea580c;
   --chart-3: #0d9488;
   --chart-4: #7c3aed;
@@ -54,12 +55,12 @@
 
   --sidebar: #ffffff;
   --sidebar-foreground: #334155;
-  --sidebar-primary: var(--brand, #2563eb);
+  --sidebar-primary: var(--brand, #1e40af);
   --sidebar-primary-foreground: var(--brand-foreground, #ffffff);
   --sidebar-accent: #f1f5f9;
   --sidebar-accent-foreground: #0f172a;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: var(--brand, #2563eb);
+  --sidebar-ring: var(--brand, #1e40af);
 }
 
 .dark {
@@ -70,7 +71,7 @@
   --popover: #131d33;
   --popover-foreground: #e2e8f0;
 
-  --primary: var(--brand-dark, #5182ef);
+  --primary: var(--brand-dark, #6d83cb);
   --primary-foreground: var(--brand-dark-foreground, #0f172a);
   --secondary: #1b2740;
   --secondary-foreground: #e2e8f0;
@@ -93,9 +94,9 @@
 
   --border: #22304a;
   --input: #2c3b58;
-  --ring: var(--brand-dark, #5182ef);
+  --ring: var(--brand-dark, #6d83cb);
 
-  --chart-1: var(--brand-dark, #5182ef);
+  --chart-1: var(--brand-dark, #6d83cb);
   --chart-2: #fb923c;
   --chart-3: #2dd4bf;
   --chart-4: #a78bfa;
@@ -103,10 +104,10 @@
 
   --sidebar: #0e1729;
   --sidebar-foreground: #cbd5e1;
-  --sidebar-primary: var(--brand-dark, #5182ef);
+  --sidebar-primary: var(--brand-dark, #6d83cb);
   --sidebar-primary-foreground: var(--brand-dark-foreground, #0f172a);
   --sidebar-accent: #1a2540;
   --sidebar-accent-foreground: #f1f5f9;
   --sidebar-border: #1e2a42;
-  --sidebar-ring: var(--brand-dark, #5182ef);
+  --sidebar-ring: var(--brand-dark, #6d83cb);
 }

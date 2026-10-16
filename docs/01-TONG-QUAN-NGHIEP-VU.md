@@ -13,8 +13,8 @@
 | Ngành / loại khách hàng | Cửa hàng thời trang, mỹ phẩm, đồ gia dụng bán online |
 | Loại sản phẩm | Website cho khách + web quản trị |
 | Ý tưởng gốc | 2.1 · Website bán hàng (`ZDOCS/02-KE-HOACH/DANH-SACH-Y-TUONG.md`) |
-| Người phụ trách | |
-| Trạng thái | Có tài liệu nghiệp vụ (SRS, use case, kịch bản demo, kịch bản kiểm thử), chưa code |
+| Người phụ trách | Mạnh Hùng (Pum) |
+| Trạng thái | Đã code BE + FE, chạy được cả hai chế độ (dữ liệu mẫu và BE thật trên Postgres) |
 
 ## 2. Vấn đề của khách hàng
 

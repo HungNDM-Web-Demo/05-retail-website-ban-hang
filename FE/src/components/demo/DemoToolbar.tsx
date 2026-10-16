@@ -7,6 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Separator } from '@/components/ui/separator'
 import { appConfig } from '@/config/app.config'
 import { useDemoEnvironment } from '@/features/demo/hooks/use-demo'
+import { ShopDemoSection } from '@/features/shop/components/StoreEntry'
 import { ResetDataButton, ResetDataDialog } from './ResetDataButton'
 import { RoleSwitcher } from './RoleSwitcher'
 import { ThemePicker } from './ThemePicker'
@@ -71,6 +72,10 @@ function DemoToolbarPanel() {
             </Button>
           </div>
 
+          <Section title="Cửa hàng">
+            <ShopDemoSection onDone={() => setOpen(false)} />
+          </Section>
+          <Separator />
           <Section title="Đổi vai trò nhanh">
             <RoleSwitcher onSwitched={() => setOpen(false)} />
           </Section>
